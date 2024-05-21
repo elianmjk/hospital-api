@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cita extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
+=======
+    protected $table='citas';
+     
+    public $timestamp=false;
+
+>>>>>>> master
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\CitaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Define la ruta para el método index del controlador CitasController
+Route::get('/citas', [CitaController::class, 'index'])->name('citas.index');
+
+
