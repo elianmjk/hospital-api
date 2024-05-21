@@ -8,10 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Tratamiento extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
-=======
     protected $table='tratamientos';
-     
     public $timestamp=false;
->>>>>>> master
 }
