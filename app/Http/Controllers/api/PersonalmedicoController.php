@@ -1,49 +1,98 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\PersonalMedico;
 
-class PersonalmedicoController extends Controller
+class PersonalMedicoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $personalMedico = PersonalMedico::all();
+
+        return response()->json(['personal_medico' => $personalMedico]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // Validar la solicitud
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'especialidad' => 'required|string|max:255',
+            'horario' => 'required|string|max:255',
+        ]);
+
+        // Verificar si la validación falla
+        if ($validator->fails()) {
+            return response()->json([
+                'msg' => 'Se produjo un error en las validaciones de la información',
+                'statuscode' => 422,
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        // Crear el nuevo personal médico
+        $personalMedico = PersonalMedico::create($request->all());
+
+        return response()->json(['personal_medico' => $personalMedico], 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $personalMedico = PersonalMedico::find($id);
+
+        if (!$personalMedico) {
+            return response()->json(['message' => 'Personal médico no encontrado'], 404);
+        }
+
+        return response()->json(['personal_medico' => $personalMedico]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $personalMedico = PersonalMedico::find($id);
+
+        if (!$personalMedico) {
+            return response()->json(['message' => 'Personal médico no encontrado'], 404);
+        }
+
+        // Validar la solicitud
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'sometimes|required|string|max:255',
+            'apellido' => 'sometimes|required|string|max:255',
+            'especialidad' => 'sometimes|required|string|max:255',
+            'horario' => 'sometimes|required|string|max:255',
+        ]);
+
+        // Verificar si la validación falla
+        if ($validator->fails()) {
+            return response()->json([
+                'msg' => 'Se produjo un error en las validaciones de la información',
+                'statuscode' => 422,
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        // Actualizar el personal médico
+        $personalMedico->update($request->all());
+
+        return response()->json(['personal_medico' => $personalMedico]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $personalMedico = PersonalMedico::find($id);
+
+        if (!$personalMedico) {
+            return response()->json(['message' => 'Personal médico no encontrado'], 404);
+        }
+
+        $personalMedico->delete();
+
+        return response()->json(['message' => 'Personal médico eliminado correctamente']);
     }
 }
