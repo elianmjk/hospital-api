@@ -27,13 +27,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/citas', [CitaController::class, 'index'])->name('citas.index');
 Route::post('/citas', [CitaController::class, 'store'])->name('citas.store');
 Route::get('/citas/{id}', [CitaController::class, 'show'])->name('citas.show');
-Route::get('/citas/{id}/edit', [CitaController::class, 'edit'])->name('citas.edit');
 Route::put('/citas/{id}', [CitaController::class, 'update'])->name('citas.update');
 Route::delete('/citas/{id}', [CitaController::class, 'destroy'])->name('citas.destroy');
 
 
 Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.index');
 Route::post('/pacientes', [PacienteController::class, 'store'])->name('pacientes.store');
+Route::get('/pacientes/{id}', [PacienteController::class, 'show'])->name('pacientes.show');
 Route::put('/pacientes/{id}', [PacienteController::class, 'update'])->name('pacientes.update');
 Route::delete('/pacientes/{id}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
 
@@ -41,7 +41,6 @@ Route::delete('/pacientes/{id}', [PacienteController::class, 'destroy'])->name('
 Route::get('/facturas', [FacturacionController::class, 'index'])->name('facturas.index');
 Route::post('/facturas', [FacturacionController::class, 'store'])->name('facturas.store');
 Route::get('/facturas/{id}', [FacturacionController::class, 'show'])->name('facturas.show');
-Route::get('/facturas/{id}/edit', [PacienteController::class, 'edit'])->name('facturas.edit');
 Route::put('/facturas/{id}', [PacienteController::class, 'update'])->name('facturas.update');
 Route::delete('/facturas/{id}', [PacienteController::class, 'destroy'])->name('facturas.destroy');
 
