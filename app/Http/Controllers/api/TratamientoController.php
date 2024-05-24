@@ -34,8 +34,12 @@ class TratamientoController extends Controller
             ], 422);
         }
 
-        // Crear el nuevo tratamiento
-        $tratamiento = Tratamiento::create($request->all());
+         
+    $tratamiento = new Tratamiento();
+    $tratamiento->fecha_facturacion = $request->input('fecha_facturacion');
+    $tratamiento->total = $request->input('total');
+    $tratamiento->estado = $request->input('estado');
+    $tratamiento->save();
 
         return response()->json(['tratamiento' => $tratamiento], 201);
     }
@@ -75,8 +79,12 @@ class TratamientoController extends Controller
             ], 422);
         }
 
-        // Actualizar el tratamiento
-        $tratamiento->update($request->all());
+          
+    $tratamiento = new Tratamiento();
+    $tratamiento->fecha_facturacion = $request->input('fecha_facturacion');
+    $tratamiento->total = $request->input('total');
+    $tratamiento->estado = $request->input('estado');
+    $tratamiento->save();
 
         return response()->json(['tratamiento' => $tratamiento]);
     }

@@ -42,14 +42,14 @@ class FacturacionController extends Controller
             ], 422);
         }
 
-        // Crear la nueva facturación
-        $facturacion = Factura::create([
-            'paciente_id' => $request->paciente_id,
-            'tratamiento_id' => $request->tratamiento_id,
-            'fecha_facturacion' => $request->fecha_facturacion,
-            'total' => $request->total,
-            'estado' => $request->estado,
-        ]);
+       
+        $facturacion = new Factura();
+        $facturacion->paciente_id = $request->input('paciente_id');
+        $facturacion->tratamiento_id = $request->input('tratamiento_id');
+        $facturacion->fecha_facturacion = $request->input('fecha_facturacion');
+        $facturacion->total = $request->input('total');
+        $facturacion->estado = $request->input('estado');
+        $facturacion->save();
 
         return response()->json(['facturacion' => $facturacion], 201);
     }
@@ -91,8 +91,14 @@ class FacturacionController extends Controller
             ], 422);
         }
 
-        // Actualizar la facturación
-        $facturacion->update($request->all());
+     
+        $facturacion = new Factura();
+        $facturacion->paciente_id = $request->input('paciente_id');
+        $facturacion->tratamiento_id = $request->input('tratamiento_id');
+        $facturacion->fecha_facturacion = $request->input('fecha_facturacion');
+        $facturacion->total = $request->input('total');
+        $facturacion->estado = $request->input('estado');
+        $facturacion->save();
 
         return response()->json(['facturacion' => $facturacion]);
     }

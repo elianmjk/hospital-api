@@ -34,8 +34,6 @@ Route::delete('/citas/{id}', [CitaController::class, 'destroy'])->name('citas.de
 
 Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.index');
 Route::post('/pacientes', [PacienteController::class, 'store'])->name('pacientes.store');
-Route::get('/pacientes/{id}', [PacienteController::class, 'show'])->name('pacientes.show');
-Route::get('/pacientes/{id}/edit', [PacienteController::class, 'edit'])->name('pacientes.edit');
 Route::put('/pacientes/{id}', [PacienteController::class, 'update'])->name('pacientes.update');
 Route::delete('/pacientes/{id}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
 
@@ -49,12 +47,12 @@ Route::delete('/facturas/{id}', [PacienteController::class, 'destroy'])->name('f
 
 
 
-Route::get('/personal_medico', [PersonalMedicoController::class, 'index'])->name('personal_medico.index');
-Route::post('/personal_medico', [PersonalMedicoController::class, 'store'])->name('personal_medico.store');
-Route::get('/personal_medico/{id}', [PersonalMedicoController::class, 'show'])->name('personal_medico.show');
-Route::get('/personal_medico/{id}/edit', [PersonalMedicoController::class, 'edit'])->name('personal_medico.edit');
-Route::put('/personal_medico/{id}', [PersonalMedicoController::class, 'update'])->name('personal_medico.update');
-Route::delete('/personal_medico/{id}', [PersonalMedicoController::class, 'destroy'])->name('personal_medico.destroy');
+Route::get('/personalmedico', [PersonalMedicoController::class, 'index'])->name('personal_medico.index');
+Route::post('/personalmedico', [PersonalMedicoController::class, 'store'])->name('personal_medico.store');
+Route::get('/personalmedico/{id}', [PersonalMedicoController::class, 'show'])->name('personal_medico.show');
+Route::get('/personalmedico/{id}/edit', [PersonalMedicoController::class, 'edit'])->name('personal_medico.edit');
+Route::put('/personalmedico/{id}', [PersonalMedicoController::class, 'update'])->name('personal_medico.update');
+Route::delete('/personalmedico/{id}', [PersonalMedicoController::class, 'destroy'])->name('personal_medico.destroy');
 
 
 

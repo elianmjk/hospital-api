@@ -35,8 +35,14 @@ class PersonalMedicoController extends Controller
             ], 422);
         }
 
-        // Crear el nuevo personal médico
-        $personalMedico = PersonalMedico::create($request->all());
+        $personalMedico = new PersonalMedico;
+        $personalMedico->nombre = $request->nombre;
+        $personalMedico->apellido = $request->apellido;
+        $personalMedico->especialidad = $request->especialidad;
+        $personalMedico->horario = $request->horario;
+        $personalMedico->save();
+        
+
 
         return response()->json(['personal_medico' => $personalMedico], 201);
     }
@@ -77,8 +83,12 @@ class PersonalMedicoController extends Controller
             ], 422);
         }
 
-        // Actualizar el personal médico
-        $personalMedico->update($request->all());
+        $personalMedico = new PersonalMedico;
+        $personalMedico->nombre = $request->nombre;
+        $personalMedico->apellido = $request->apellido;
+        $personalMedico->especialidad = $request->especialidad;
+        $personalMedico->horario = $request->horario;
+        $personalMedico->save();
 
         return response()->json(['personal_medico' => $personalMedico]);
     }
