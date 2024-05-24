@@ -48,14 +48,14 @@ class CitaController extends Controller
         ], 422);
     }
 
-         /
-         $cita = new Cita;
          
-            'paciente_id' => $request->paciente_id,
-            'medico_id' => $request->medico_id,
-            'tipo' => $request->tipo,
-            'estado' => $request->estado,
-            'fecha_hora' => $request->fecha_hora,
+         $cita = new Cita;
+           $cita->paciente_id=$request->paciente_id;
+           $cita->medico_id=$request->medico_id;
+           $cita->tipo=$request->tipo;
+           $cita->estado=$request->estado;
+           $cita->fecha_hora=$request->fecha_hora;
+           
         
 
         return response()->json(['cita' => $cita], 201);
@@ -124,8 +124,13 @@ class CitaController extends Controller
             return response()->json(['message' => 'Cita no encontrada'], 404);
         }
 
-        // Actualizar la cita
-        $cita->update($request->all());
+        $cita = new Cita;
+           $cita->paciente_id=$request->paciente_id;
+           $cita->medico_id=$request->medico_id;
+           $cita->tipo=$request->tipo;
+           $cita->estado=$request->estado;
+           $cita->fecha_hora=$request->fecha_hora;
+           
 
         return response()->json(['cita' => $cita]);
     }
