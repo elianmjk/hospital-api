@@ -44,11 +44,11 @@ class FacturacionController extends Controller
 
        
         $facturacion = new Factura();
-        $facturacion->paciente_id = $request->input('paciente_id');
-        $facturacion->tratamiento_id = $request->input('tratamiento_id');
-        $facturacion->fecha_facturacion = $request->input('fecha_facturacion');
-        $facturacion->total = $request->input('total');
-        $facturacion->estado = $request->input('estado');
+        $facturacion->paciente_id = $request->paciente_id;
+        $facturacion->tratamiento_id = $request->tratamiento_id;
+        $facturacion->fecha_facturacion = $request->fecha_facturacion;
+        $facturacion->total = $request->total;
+        $facturacion->estado = $request->estado;
         $facturacion->save();
 
         return response()->json(['facturacion' => $facturacion], 201);
@@ -93,11 +93,11 @@ class FacturacionController extends Controller
 
      
         $facturacion = new Factura();
-        $facturacion->paciente_id = $request->input('paciente_id');
-        $facturacion->tratamiento_id = $request->input('tratamiento_id');
-        $facturacion->fecha_facturacion = $request->input('fecha_facturacion');
-        $facturacion->total = $request->input('total');
-        $facturacion->estado = $request->input('estado');
+        $facturacion->paciente_id = $request->paciente_id;
+        $facturacion->tratamiento_id = $request->tratamiento_id;
+        $facturacion->fecha_facturacion = $request->fecha_facturacion;
+        $facturacion->total = $request->total;
+        $facturacion->estado = $request->estado;
         $facturacion->save();
 
         return response()->json(['facturacion' => $facturacion]);
