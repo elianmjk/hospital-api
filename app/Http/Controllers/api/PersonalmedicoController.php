@@ -44,7 +44,7 @@ class PersonalMedicoController extends Controller
         
 
 
-        return response()->json(['personal_medico' => $personalMedico], 201);
+        return response()->json(['personalmedico' => $personalMedico], 201);
     }
 
     public function show($id)
@@ -55,7 +55,7 @@ class PersonalMedicoController extends Controller
             return response()->json(['message' => 'Personal médico no encontrado'], 404);
         }
 
-        return response()->json(['personal_medico' => $personalMedico]);
+        return response()->json(['personalmedico' => $personalMedico]);
     }
 
     public function update(Request $request, $id)
@@ -90,7 +90,7 @@ class PersonalMedicoController extends Controller
         $personalMedico->horario = $request->horario;
         $personalMedico->save();
 
-        return response()->json(['personal_medico' => $personalMedico]);
+        return response()->json(['personalmedico' => $personalMedico]);
     }
 
     public function destroy($id)

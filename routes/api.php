@@ -47,12 +47,11 @@ Route::delete('/facturas/{id}', [PacienteController::class, 'destroy'])->name('f
 
 
 
-Route::get('/personalmedico', [PersonalMedicoController::class, 'index'])->name('personal_medico.index');
-Route::post('/personalmedico', [PersonalMedicoController::class, 'store'])->name('personal_medico.store');
-Route::get('/personalmedico/{id}', [PersonalMedicoController::class, 'show'])->name('personal_medico.show');
-Route::get('/personalmedico/{id}/edit', [PersonalMedicoController::class, 'edit'])->name('personal_medico.edit');
-Route::put('/personalmedico/{id}', [PersonalMedicoController::class, 'update'])->name('personal_medico.update');
-Route::delete('/personalmedico/{id}', [PersonalMedicoController::class, 'destroy'])->name('personal_medico.destroy');
+Route::get('/personalmedico', [PersonalMedicoController::class, 'index'])->name('personalmedico.index');
+Route::post('/personalmedico', [PersonalMedicoController::class, 'store'])->name('personalmedico.store');
+Route::get('/personalmedico/{id}', [PersonalMedicoController::class, 'show'])->name('personalmedico.show');
+Route::put('/personalmedico/{id}', [PersonalMedicoController::class, 'update'])->name('personalmedico.update');
+Route::delete('/personalmedico/{id}', [PersonalMedicoController::class, 'destroy'])->name('personalmedico.destroy');
 
 
 
