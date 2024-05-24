@@ -48,14 +48,15 @@ class CitaController extends Controller
         ], 422);
     }
 
-         // Crear la nueva cita
-         $cita = Cita::create([
+         /
+         $cita = new Cita;
+         
             'paciente_id' => $request->paciente_id,
             'medico_id' => $request->medico_id,
             'tipo' => $request->tipo,
             'estado' => $request->estado,
             'fecha_hora' => $request->fecha_hora,
-        ]);
+        
 
         return response()->json(['cita' => $cita], 201);
     }
