@@ -20,17 +20,12 @@ class PersonalMedicoController extends Controller
     {
         // Validar la solicitud
         $validator = Validator::make($request->all(), [
-<<<<<<< HEAD
-            'nombre' => 'required|string|max:255',
-            'apellido' => 'required|string|max:255',
-            'especialidad' => 'required|string|max:255',
-            'horario' => 'required|string|max:255',
-=======
+
             'nombre' => 'required',
             'apellido' => 'required',
             'especialidad' => 'required',
             'horario' => 'required',
->>>>>>> main
+
         ]);
 
         // Verificar si la validación falla
@@ -75,17 +70,12 @@ class PersonalMedicoController extends Controller
 
         // Validar la solicitud
         $validator = Validator::make($request->all(), [
-<<<<<<< HEAD
-            'nombre' => 'sometimes|required|string|max:255',
-            'apellido' => 'sometimes|required|string|max:255',
-            'especialidad' => 'sometimes|required|string|max:255',
-            'horario' => 'sometimes|required|string|max:255',
-=======
+
             'nombre' => 'required',
             'apellido' => 'required',
             'especialidad' => 'required',
             'horario' => 'required',
->>>>>>> main
+
         ]);
 
         // Verificar si la validación falla
@@ -97,10 +87,8 @@ class PersonalMedicoController extends Controller
             ], 422);
         }
 
-<<<<<<< HEAD
-        $personalMedico = new PersonalMedico;
-=======
->>>>>>> main
+
+
         $personalMedico->nombre = $request->nombre;
         $personalMedico->apellido = $request->apellido;
         $personalMedico->especialidad = $request->especialidad;
