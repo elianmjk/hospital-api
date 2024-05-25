@@ -20,9 +20,15 @@ class TratamientoController extends Controller
     {
         // Validar la solicitud
         $validator = Validator::make($request->all(), [
+<<<<<<< HEAD
             'fecha_facturacion' => 'required|date',
             'total' => 'required|numeric|min:0',
             'estado' => 'required|in:pendiente,pagada',
+=======
+            'fecha_facturacion' => 'required',
+            'total' => 'required',
+            'estado' => 'required',
+>>>>>>> main
         ]);
 
         // Verificar si la validación falla
@@ -65,9 +71,15 @@ class TratamientoController extends Controller
 
         // Validar la solicitud
         $validator = Validator::make($request->all(), [
+<<<<<<< HEAD
             'fecha_facturacion' => 'sometimes|required|date',
             'total' => 'sometimes|required|numeric|min:0',
             'estado' => 'sometimes|required|in:pendiente,pagada',
+=======
+            'fecha_facturacion' => 'required',
+            'total' => 'required',
+            'estado' => 'required',
+>>>>>>> main
         ]);
 
         // Verificar si la validación falla
@@ -80,7 +92,10 @@ class TratamientoController extends Controller
         }
 
           
+<<<<<<< HEAD
     $tratamiento = new Tratamiento();
+=======
+>>>>>>> main
     $tratamiento->fecha_facturacion = $request->input('fecha_facturacion');
     $tratamiento->total = $request->input('total');
     $tratamiento->estado = $request->input('estado');

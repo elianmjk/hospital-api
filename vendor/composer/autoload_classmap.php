@@ -9,6 +9,10 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+<<<<<<< HEAD
+=======
+    'App\\Http\\Controllers\\api\\CitaController' => $baseDir . '/app/Http/Controllers/api/CitaController.php',
+>>>>>>> main
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -19,6 +23,14 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+<<<<<<< HEAD
+=======
+    'App\\Models\\Cita' => $baseDir . '/app/Models/Cita.php',
+    'App\\Models\\Factura' => $baseDir . '/app/Models/Factura.php',
+    'App\\Models\\Paciente' => $baseDir . '/app/Models/Paciente.php',
+    'App\\Models\\Personalmedico' => $baseDir . '/app/Models/Personalmedico.php',
+    'App\\Models\\Tratamiento' => $baseDir . '/app/Models/Tratamiento.php',
+>>>>>>> main
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

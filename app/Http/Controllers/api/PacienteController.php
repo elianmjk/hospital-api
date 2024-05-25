@@ -18,6 +18,7 @@ class PacienteController extends Controller
 
     public function store(Request $request)
     {
+<<<<<<< HEAD
     // Validar la solicitud
     $validator = Validator::make($request->all(), [
         'nombre' => 'required|string|max:255',
@@ -50,6 +51,42 @@ class PacienteController extends Controller
     $paciente->save();
 
     return response()->json(['paciente' => $paciente], 201);
+=======
+        // Validar la solicitud
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'fecha_nacimiento' => 'required',
+            'sexo' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+        ]);
+
+        // Verificar si la validación falla
+        if ($validator->fails()) {
+            return response()->json([
+                'msg' => 'Se produjo un error en las validaciones de la información',
+                'statuscode' => 422,
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        // Crear el nuevo paciente paso a paso
+        $paciente = new Paciente();
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->sexo = $request->sexo;
+        $paciente->direccion = $request->direccion;
+        $paciente->telefono = $request->telefono;
+        $paciente->email = $request->email;
+        $paciente->id = $request->id;
+
+        $paciente->save();
+
+        return response()->json(['paciente' => $paciente], 201);
+>>>>>>> main
     }
 
     public function show($id)
@@ -67,6 +104,7 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::find($id);
 
+<<<<<<< HEAD
     if (!$paciente) {
         return response()->json(['message' => 'Paciente no encontrado'], 404);
     }
@@ -107,6 +145,48 @@ class PacienteController extends Controller
     return response()->json(['paciente' => $paciente]);
     }
     
+=======
+        if (!$paciente) {
+            return response()->json(['message' => 'Paciente no encontrado'], 404);
+        }
+
+        // Validar la solicitud
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'fecha_nacimiento' => 'required',
+            'sexo' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+        ]);
+
+        // Verificar si la validación falla
+        if ($validator->fails()) {
+            return response()->json([
+                'msg' => 'Se produjo un error en las validaciones de la información',
+                'statuscode' => 422,
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        // Crear el nuevo paciente paso a paso
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->sexo = $request->sexo;
+        $paciente->direccion = $request->direccion;
+        $paciente->telefono = $request->telefono;
+        $paciente->email = $request->email;
+
+        $paciente->save();
+
+
+
+        return response()->json(['paciente' => $paciente]);
+    }
+
+>>>>>>> main
     public function destroy($id)
     {
         $paciente = Paciente::find($id);
